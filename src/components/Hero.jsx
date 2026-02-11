@@ -53,10 +53,20 @@ export default function Hero() {
             </div>
 
             {/* Rating */}
-            <p className="mt-6 text-sm text-gray-400 flex items-center gap-2">
-              <span className="text-yellow-400">★★★★★</span>
-              4.7/5 Rating from 5,000+ Happy Customers
-            </p>
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-2 text-center text-gray-200 mt-4">
+                
+                {/* Stars */}
+                <div className="flex text-yellow-400">
+                  ★★★★★
+                </div>
+
+                {/* Text */}
+                <p className="text-sm sm:text-base">
+                  4.7/5 Rating from 5,000+ Happy Customers
+                </p>
+
+              </div>
+
 
           </div>
 

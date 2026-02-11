@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+
 import cockroach from "../assets/pests/cockroach.png";
 import mosquito from "../assets/pests/mosquito.png";
 import bedbug from "../assets/pests/bedbug.png";
@@ -15,11 +16,14 @@ function Counter({ end }) {
       ([entry]) => {
         if (entry.isIntersecting && !started.current) {
           started.current = true;
+
           let current = 0;
           const duration = 1500;
           const step = Math.max(1, Math.floor(end / 60));
+
           const timer = setInterval(() => {
             current += step;
+
             if (current >= end) {
               setCount(end);
               clearInterval(timer);
@@ -31,13 +35,14 @@ function Counter({ end }) {
       },
       { threshold: 0.4 }
     );
+
     if (ref.current) observer.observe(ref.current);
+
     return () => observer.disconnect();
   }, [end]);
 
   return <span ref={ref}>{count}</span>;
 }
-
 export default function PestProtection() {
   const pests = [
     { img: cockroach, name: "Cockroaches" },
@@ -56,25 +61,26 @@ export default function PestProtection() {
           Protecting your home with expert pest control
         </h2>
 
-        {/* Pests Row */}
-        <div className="flex justify-between items-start flex-wrap gap-y-10 mb-20">
+        {/* Pests Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 sm:gap-8 lg:gap-10 place-items-center mb-20">
 
           {pests.map((item, i) => (
-            <div key={i} className="flex flex-col items-center w-[180px]">
+            <div key={i} className="flex flex-col items-center text-center group">
 
-              <div className="relative w-36 h-36 rounded-full border-[6px] border-lime-400 flex items-center justify-center overflow-hidden transition-all duration-500 hover:scale-105">
+              {/* Circle */}
+              <div className="relative w-28 h-28 sm:w-36 sm:h-36 lg:w-40 lg:h-40 rounded-full border-[5px] border-lime-400 overflow-hidden transition-all duration-500 group-hover:scale-110">
 
-                <img
-                  src={item.img}
-                  alt={item.name}
-                  className="w-24 h-24 object-contain"
-                />
+                <img src={item.img} alt={item.name} className="w-full h-full object-contain p-3" />
 
                 {/* Slash Line */}
-                <span className="absolute w-[140%] h-[4px] bg-lime-400 rotate-45"></span>
+                <span className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <span className="w-[140%] h-[3px] bg-lime-400 rotate-45"></span>
+                </span>
+
               </div>
 
-              <p className="mt-4 font-semibold text-green-900 text-center">
+              {/* Label */}
+              <p className="mt-3 text-sm sm:text-base font-semibold text-green-900">
                 {item.name}
               </p>
 
@@ -93,36 +99,28 @@ export default function PestProtection() {
             <h3 className="text-4xl font-bold text-green-900 mb-2">
               <Counter end={95} />%
             </h3>
-            <p className="text-gray-600 text-sm">
-              Pest Control Success Rate
-            </p>
+            <p className="text-gray-600 text-sm">Pest Control Success Rate</p>
           </div>
 
           <div>
             <h3 className="text-4xl font-bold text-green-900 mb-2">
               <Counter end={4500} />+
             </h3>
-            <p className="text-gray-600 text-sm">
-              Cockroaches Exist Worldwide
-            </p>
+            <p className="text-gray-600 text-sm">Cockroaches Exist Worldwide</p>
           </div>
 
           <div>
             <h3 className="text-4xl font-bold text-green-900 mb-2">
               <Counter end={24} />/7
             </h3>
-            <p className="text-gray-600 text-sm">
-              Termites Work Nonstop
-            </p>
+            <p className="text-gray-600 text-sm">Termites Work Nonstop</p>
           </div>
 
           <div>
             <h3 className="text-4xl font-bold text-green-900 mb-2">
               <Counter end={300} />
             </h3>
-            <p className="text-gray-600 text-sm">
-              Eggs per Mosquito
-            </p>
+            <p className="text-gray-600 text-sm">Eggs per Mosquito</p>
           </div>
 
         </div>

@@ -1,6 +1,53 @@
+import { useEffect, useRef, useState } from "react";
 import aboutMain from "../assets/about-main.jpg";
 import aboutSmall from "../assets/about-small.jpg";
 import { Check } from "lucide-react";
+
+/* ---------------- Progress Bar Component ---------------- */
+
+function ProgressBar({ label, value }) {
+  const barRef = useRef(null);
+  const [width, setWidth] = useState(0);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          setWidth(value);
+        }
+      },
+      { threshold: 0.4 }
+    );
+
+    if (barRef.current) observer.observe(barRef.current);
+
+    return () => observer.disconnect();
+  }, [value]);
+
+  return (
+    <div ref={barRef}>
+      {/* Label */}
+      <div className="flex justify-between text-sm mb-1">
+        <span>{label}</span>
+        <span>{value}%</span>
+      </div>
+
+      {/* Bar */}
+      <div className="w-full h-2 bg-white/60 rounded-full overflow-hidden">
+
+        <div
+          className="h-full bg-lime-400 rounded-full transition-all duration-[1500ms] ease-out"
+          style={{ width: `${width}%` }}
+        ></div>
+
+      </div>
+    </div>
+  );
+}
+
+/* ---------------- Main About Component ---------------- */
 
 export default function About() {
   return (
@@ -97,33 +144,18 @@ export default function About() {
             </div>
 
 
-            {/* Progress Bars */}
+            {/* Animated Progress Bars */}
             <div className="space-y-4 pt-4 max-w-lg">
 
-              {/* Satisfaction */}
-              <div>
-                <div className="flex justify-between text-sm mb-1">
-                  <span>Customer Satisfaction</span>
-                  <span>95%</span>
-                </div>
+              <ProgressBar
+                label="Customer Satisfaction"
+                value={95}
+              />
 
-                <div className="w-full h-2 bg-white/60 rounded-full overflow-hidden">
-                  <div className="h-full bg-lime-400 w-[95%] rounded-full"></div>
-                </div>
-              </div>
-
-
-              {/* Success */}
-              <div>
-                <div className="flex justify-between text-sm mb-1">
-                  <span>Service Success Rate</span>
-                  <span>90%</span>
-                </div>
-
-                <div className="w-full h-2 bg-white/60 rounded-full overflow-hidden">
-                  <div className="h-full bg-lime-400 w-[90%] rounded-full"></div>
-                </div>
-              </div>
+              <ProgressBar
+                label="Service Success Rate"
+                value={90}
+              />
 
             </div>
 
@@ -158,4 +190,4 @@ export default function About() {
       </div>
     </section>
   );
-}
+} 
