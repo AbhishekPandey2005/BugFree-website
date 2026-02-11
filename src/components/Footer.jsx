@@ -1,12 +1,7 @@
 export default function Footer() {
   return (
     <footer
-      className="
-        bg-gradient-to-b from-[#BFD6CB] to-[#C3D7CC]
-        text-slate-800
-        border-t border-green-400/30
-        shadow-inner
-      "
+      className=" bg-gradient-to-b from-[#BFD6CB] to-[#C3D7CC] text-slate-800 border-t border-green-400/30 shadow-inner "
     >
       {/* Main Footer */}
       <div className="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-12">
@@ -18,8 +13,7 @@ export default function Footer() {
           </h3>
 
           <p className="text-slate-600 leading-relaxed">
-            Professional and eco-friendly pest control
-            solutions for homes and businesses.
+            We are a trusted pest control service provider offering safe, effective, and solutions homes and businesses.
           </p>
         </div>
 
@@ -80,7 +74,6 @@ export default function Footer() {
         </div>
 
       </div>
-
       {/* Bottom Bar */}
       <div className="border-t border-green-400/30 text-center py-6 text-sm text-slate-500">
         © 2026 Bugfree. All rights reserved.

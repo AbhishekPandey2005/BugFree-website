@@ -1,5 +1,4 @@
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
@@ -11,12 +10,10 @@ import { Routes, Route } from "react-router-dom";
 
 export default function App() {
   return (
-    <div className="bg-[#F8F9FA] text-slate-900 min-h-screen">
+    <div className="bg-[#C3D7CC] text-slate-900 min-h-screen">
 
-      
-      
+      <Navbar />
 
-      {/* Pages */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<ServicesPage />} />

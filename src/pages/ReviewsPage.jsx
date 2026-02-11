@@ -1,4 +1,4 @@
-import Testimonials from "../components/Testimonials";
+import Testimonials from "../components/Reviews";
 
 export default function ReviewsPage() {
   return (

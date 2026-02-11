@@ -1,6 +1,5 @@
 import { useNavigate } from "react-router-dom";
 import heroImg from "../assets/hero/hero-bg.jpg";
-import Navbar from "./Navbar";
 
 export default function Hero() {
   const navigate = useNavigate();
@@ -8,17 +7,10 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="pt-28 relative z-10 min-h-[90vh] flex items-center justify-center
-      bg-[#C3D7CC] overflow-hidden px-4 md:px-8"
+      className="pt-28 relative z-10 min-h-[90vh] flex items-center justify-center bg-[#C3D7CC] overflow-hidden px-4 md:px-8"
     >
       {/* MAIN CONTAINER */}
-        <div className="relative z-20 max-w-7xl w-full rounded-[32px] shadow-2xl
-          bg-[#0F3D1C] border border-white/20 overflow-hidden">
-            {/* NAVBAR INSIDE HERO */}
-              <div className="px-6 pt-6">
-                <Navbar />
-              </div>
-
+        <div className="relative z-20 max-w-7xl w-full rounded-[32px] shadow-2xl bg-[#0F3D1C] border border-white/20 overflow-hidden">
         <div className="px-12 pb-12 pt-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
 
@@ -49,16 +41,7 @@ export default function Hero() {
 
               <button
                 onClick={() => navigate("/contact")}
-                className="
-                  bg-lime-400 text-black
-                  px-8 py-3
-                  rounded-full
-                  font-semibold
-                  shadow-lg shadow-lime-400/30
-                  hover:bg-lime-300
-                  hover:shadow-lime-400/50
-                  transition
-                "
+                className=" bg-lime-400 text-black px-8 py-3 rounded-full font-semibold shadow-lg shadow-lime-400/30 hover:bg-lime-300 hover:shadow-lime-400/50 transition "
               >
                 Get Pest-Free Today →
               </button>
@@ -96,10 +79,7 @@ export default function Hero() {
       </div>
 
       {/* BACKGROUND GRID */}
-      <div className="pointer-events-none absolute inset-0 -z-10
-        bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px),
-        linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)]
-        bg-[size:40px_40px] opacity-20">
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(to_right,rgba(255,255,255,0.05)_1px,transparent_1px), linear-gradient(to_bottom,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:40px_40px] opacity-20">
       </div>
 
     </section>

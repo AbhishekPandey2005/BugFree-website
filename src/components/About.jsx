@@ -1,71 +1,155 @@
-import aboutImg from "../assets/about.jpg";
-import { useNavigate } from "react-router-dom";
+import aboutMain from "../assets/about-main.jpg";
+import aboutSmall from "../assets/about-small.jpg";
+import { Check } from "lucide-react";
 
 export default function About() {
-  const navigate = useNavigate();
   return (
-    <section className="bg-[#C3D7CC] py-24">
-      {/* Container */}
+    <section className="bg-[#C3D7CC] py-28 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* Grid */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
 
-          {/* LEFT IMAGE */}
-          <div className="flex justify-center">
-            <div className="bg-white p-3 rounded-3xl shadow-xl">
+          {/* LEFT IMAGES */}
+          <div className="relative flex justify-center">
+
+            {/* Main Image */}
+            <div className="group relative w-full max-w-lg rounded-3xl overflow-hidden shadow-xl">
 
               <img
-                src={aboutImg} // <-- replace with your real image
-                alt="Pest Expert"
-                className="w-full max-w-md rounded-2xl object-cover"
+                src={aboutMain}
+                alt="Pest Control Expert"
+                className="w-full h-[420px] object-cover transition-transform duration-500 group-hover:scale-110"
               />
 
             </div>
+
+            {/* Small Overlay Image */}
+            <div className="group absolute bottom-[-40px] right-[-20px] w-[240px] rounded-2xl overflow-hidden shadow-xl bg-white">
+
+              <img
+                src={aboutSmall}
+                alt="Pest Control Work"
+                className="w-full h-[180px] object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+
+            </div>
+
           </div>
 
+
           {/* RIGHT CONTENT */}
-          <div className="text-slate-900">
+          <div className="space-y-6 text-slate-900">
 
-            <p className="text-lime-600 text-sm font-semibold uppercase tracking-wider mb-2">
-              About Bugfree
-            </p>
+            {/* Tag */}
+            <span className="inline-flex items-center gap-2 bg-white/80 px-4 py-1 rounded-full text-sm font-semibold text-green-700 shadow">
+              <span className="w-2 h-2 bg-lime-400 rounded-full"></span>
+              About Us
+            </span>
 
-            <h2 className="text-3xl md:text-4xl font-bold leading-snug mb-5 max-w-lg">
-              Trusted Pest Control Experts <br />
-              With 10+ Years Experience
+
+            {/* Heading */}
+            <h2 className="text-4xl md:text-5xl font-extrabold leading-tight max-w-xl">
+              Experts in Residential & Commercial Pest Control
             </h2>
 
-            <p className="text-gray-700 text-base leading-relaxed mb-7 max-w-lg">
-              Bugfree provides professional pest control services using modern,
-              eco-friendly techniques. Our certified experts ensure complete safety
-              and long-term protection for your home and business.
+
+            {/* Text */}
+            <p className="text-gray-700 leading-relaxed max-w-xl">
+              We are a trusted pest control company dedicated to keeping homes and
+              businesses safe, clean, and pest-free. Using advanced techniques and
+              eco-friendly treatments, we deliver long-term protection you can rely on.
             </p>
 
-            {/* STATS */}
-            <div className="grid grid-cols-3 gap-6 mb-10">
 
-              <div>
-                <h3 className="text-3xl font-bold text-lime-500">10+</h3>
-                <p className="text-sm text-gray-600">Years Experience</p>
-              </div>
+            {/* Features */}
+            <div className="grid sm:grid-cols-2 gap-4 text-sm">
 
-              <div>
-                <h3 className="text-3xl font-bold text-lime-500">5K+</h3>
-                <p className="text-sm text-gray-600">Happy Clients</p>
-              </div>
+              {[
+                "Safe & Eco-Friendly Treatments",
+                "Certified & Experienced Technicians",
+                "Customized Pest Control Plans",
+                "Long-Term Protection Guarantee",
+              ].map((item, i) => (
 
-              <div>
-                <h3 className="text-3xl font-bold text-lime-500">100%</h3>
-                <p className="text-sm text-gray-600">Satisfaction</p>
+                <div key={i} className="flex items-center gap-2">
+
+                  <span className="w-6 h-6 flex items-center justify-center rounded-full bg-lime-400 text-black text-xs">
+                    ✓
+                  </span>
+
+                  {item}
+
+                </div>
+
+              ))}
+
+            </div>
+
+
+            {/* Stats */}
+            <div className="flex flex-wrap items-center gap-6 pt-6">
+
+              {/* Quality Circle */}
+              <div className="w-28 h-28 rounded-full border-[6px] border-lime-400 flex items-center justify-center text-center font-semibold text-green-900 bg-white/70 shadow">
+                100% <br /> Quality
               </div>
 
             </div>
 
-            {/* BUTTON */}
-            <button className="bg-lime-400 text-black px-7 py-3 rounded-full font-semibold hover:bg-lime-300 transition">
-              Learn More →
+
+            {/* Progress Bars */}
+            <div className="space-y-4 pt-4 max-w-lg">
+
+              {/* Satisfaction */}
+              <div>
+                <div className="flex justify-between text-sm mb-1">
+                  <span>Customer Satisfaction</span>
+                  <span>95%</span>
+                </div>
+
+                <div className="w-full h-2 bg-white/60 rounded-full overflow-hidden">
+                  <div className="h-full bg-lime-400 w-[95%] rounded-full"></div>
+                </div>
+              </div>
+
+
+              {/* Success */}
+              <div>
+                <div className="flex justify-between text-sm mb-1">
+                  <span>Service Success Rate</span>
+                  <span>90%</span>
+                </div>
+
+                <div className="w-full h-2 bg-white/60 rounded-full overflow-hidden">
+                  <div className="h-full bg-lime-400 w-[90%] rounded-full"></div>
+                </div>
+              </div>
+
+            </div>
+
+
+            {/* Button */}
+            <button
+              className="
+                bg-lime-400
+                text-black
+                px-8
+                py-3
+                rounded-full
+                font-semibold
+                shadow-lg
+                shadow-lime-400/40
+                transition-all
+                duration-300
+                hover:bg-lime-300
+                hover:shadow-lime-400/70
+                hover:-translate-y-[1px]
+                active:scale-[0.97]
+              "
+            >
+              Learn More About Us →
             </button>
+
 
           </div>
 
@@ -73,6 +157,5 @@ export default function About() {
 
       </div>
     </section>
-
   );
 }
