@@ -6,6 +6,8 @@ import bedbug from "../assets/pests/bedbug.png";
 import spider from "../assets/pests/spider.png";
 import termite from "../assets/pests/termite.png";
 
+/* ---------------- Counter ---------------- */
+
 function Counter({ end }) {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
@@ -43,6 +45,9 @@ function Counter({ end }) {
 
   return <span ref={ref}>{count}</span>;
 }
+
+/* ---------------- Main Component ---------------- */
+
 export default function PestProtection() {
   const pests = [
     { img: cockroach, name: "Cockroaches" },

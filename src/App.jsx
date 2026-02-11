@@ -1,5 +1,6 @@
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import ScrollToTop from "./components/ScrollToTop";
 
 import Home from "./pages/Home";
 import ServicesPage from "./pages/ServicesPage";
@@ -29,6 +30,9 @@ export default function App() {
 
   return (
     <div className="bg-[#C3D7CC] text-slate-900 min-h-screen">
+
+      {/* Scroll Reset */}
+      <ScrollToTop />
 
       {/* Navbar Always Visible */}
       <Navbar />

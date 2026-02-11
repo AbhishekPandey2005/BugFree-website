@@ -3,8 +3,6 @@ import aboutMain from "../assets/about-main.jpg";
 import aboutSmall from "../assets/about-small.jpg";
 import { Check } from "lucide-react";
 
-/* ---------------- Progress Bar Component ---------------- */
-
 function ProgressBar({ label, value }) {
   const barRef = useRef(null);
   const [width, setWidth] = useState(0);
@@ -47,7 +45,6 @@ function ProgressBar({ label, value }) {
   );
 }
 
-/* ---------------- Main About Component ---------------- */
 
 export default function About() {
   return (
@@ -163,21 +160,7 @@ export default function About() {
             {/* Button */}
             <button
               className="
-                bg-lime-400
-                text-black
-                px-8
-                py-3
-                rounded-full
-                font-semibold
-                shadow-lg
-                shadow-lime-400/40
-                transition-all
-                duration-300
-                hover:bg-lime-300
-                hover:shadow-lime-400/70
-                hover:-translate-y-[1px]
-                active:scale-[0.97]
-              "
+                bg-lime-400 text-black px-8 py-3 rounded-full font-semibold shadow-lg shadow-lime-400/40 transition-all duration-300 hover:bg-lime-300 hover:shadow-lime-400/70 hover:-translate-y-[1px] active:scale-[0.97] "
             >
               Learn More About Us →
             </button>
